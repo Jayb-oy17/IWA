@@ -92,3 +92,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// WhatsApp Contact Form
+document
+  .getElementById("whatsappForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    // Format the message for WhatsApp
+    const whatsappMessage = `*New Message from IWA Website*%0A%0A*Name:* ${name}%0A*Email:* ${
+      email || "Not provided"
+    }%0A*Subject:* ${subject}%0A*Message:* ${message}%0A%0A_Sent via IWA Website Contact Form_`;
+
+    // WhatsApp phone number (replace with actual IWA WhatsApp number)
+    const phoneNumber = "2348012345678"; // Remove the + sign and any spaces
+
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, "_blank");
+
+    // Optional: Reset form after submission
+    this.reset();
+  });
+
+// Add floating WhatsApp button (optional)
+function addFloatingWhatsAppButton() {
+  const floatingBtn = document.createElement("a");
+  floatingBtn.href = "https://wa.me/2348012345678"; // Replace with actual number
+  floatingBtn.className = "whatsapp-float";
+  floatingBtn.target = "_blank";
+  floatingBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+  floatingBtn.title = "Chat with us on WhatsApp";
+
+  document.body.appendChild(floatingBtn);
+}
+
+// Initialize floating WhatsApp button
+addFloatingWhatsAppButton();
