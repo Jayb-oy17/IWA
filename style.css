@@ -759,6 +759,19 @@ footer {
   color: #ddd;
 }
 
+/* features */
+.featureContents{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.featured1 img{
+  width: 100%;
+  border-radius: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content h1 {
@@ -836,7 +849,8 @@ footer {
   }
 
   .project-images,
-  .project-item {
+  .project-item,
+  .featureContents {
     grid-template-columns: 1fr;
   }
 
